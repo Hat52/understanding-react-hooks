@@ -32,7 +32,9 @@ export default function HookCard({ title }) {
 				backgroundColor: getBackgroundColor(),
 				display: 'flex',
 				justifyContent: 'center',
-				alignItems: 'center'
+				alignItems: 'center',
+				borderRadius: '10px',
+				cursor: 'pointer'
 			}}>
 			<CardContent>
 				<Typography gutterBottom variant="h5" style={{ color: 'black', fontWeight: 'bold' }}>
