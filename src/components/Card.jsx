@@ -1,12 +1,9 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-export default function HookCard({ title }) {
+export default function HookCard({ title, handleClick }) {
 	const getBackgroundColor = () => {
 		const backgroundColors = [
 			'#98EECC',
@@ -18,23 +15,24 @@ export default function HookCard({ title }) {
 			'#F4B183',
 			'#DFA67B'
 		];
-		// Generate random index
 		const randomIndex = Math.floor(Math.random() * backgroundColors.length);
-
-		// Retrieve random color
 		return backgroundColors[randomIndex];
 	};
 
 	return (
 		<Card
+			onClick={handleClick}
 			sx={{
-				minHeight: 100,
+				minHeight: '100px',
 				backgroundColor: getBackgroundColor(),
 				display: 'flex',
 				justifyContent: 'center',
 				alignItems: 'center',
 				borderRadius: '10px',
-				cursor: 'pointer'
+				cursor: 'pointer',
+				'&:hover': {
+					transform: 'scale(1.02)'
+				}
 			}}>
 			<CardContent>
 				<Typography gutterBottom variant="h5" style={{ color: 'black', fontWeight: 'bold' }}>

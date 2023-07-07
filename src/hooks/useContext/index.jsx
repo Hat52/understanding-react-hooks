@@ -1,3 +1,4 @@
+import React from 'react';
 import ContextProvider from './contextProvider';
 import ThemeDemo from './themeDemo';
 

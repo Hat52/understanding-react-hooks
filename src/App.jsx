@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import UseContextHook from './hooks/useContext';
 import './App.css';
 import { Box } from '@mui/system';
 import { Card } from './components';
-import { Grid } from '@mui/material';
+import { Button, Grid } from '@mui/material';
 
 const hooksCollection = [
 	{ title: 'useState', component: <>Use State</> },
@@ -23,17 +23,39 @@ const hooksCollection = [
 ];
 
 function App() {
+	const [selectedHook, setSelectedHook] = useState(null);
 	return (
-		<Box style={{ padding: 80 }}>
-			<Grid container spacing={2} justifyContent="center">
-				{hooksCollection.map(({ title }) => (
-					<Grid item xs={12} md={3}>
-						<Card title={title} />
-					</Grid>
-				))}
-
-				{/* <UseContextHook /> */}
-			</Grid>
+		<Box style={{ padding: 80, height: '100%' }}>
+			{selectedHook === null ? (
+				<Grid container spacing={2} justifyContent="center">
+					{hooksCollection.map(({ title }, index) => (
+						<Grid item xs={12} md={3}>
+							<Card title={title} handleClick={() => setSelectedHook(index)} />
+						</Grid>
+					))}
+				</Grid>
+			) : (
+				<Box
+					sx={{
+						display: 'flex',
+						flexDirection: 'column',
+						gap: 5,
+						justifyContent: 'start',
+						alignItems: 'start',
+						width: '100%'
+					}}>
+					<Button onClick={() => setSelectedHook(null)}>Back</Button>
+					<Box
+						sx={{
+							backgroundColor: '#E3F4F4',
+							minHeight: '40vh',
+							width: '100%',
+							borderRadius: '10px'
+						}}>
+						<div style={{ padding: 20 }}>{hooksCollection[selectedHook].component}</div>
+					</Box>
+				</Box>
+			)}
 		</Box>
 	);
 }
