@@ -6,24 +6,24 @@ import { Card } from './components';
 import { Button, Grid } from '@mui/material';
 
 const hooksCollection = [
-	{ title: 'useState', component: <>Use State</> },
-	{ title: 'useEffect', component: <>Use Effect</> },
+	{ title: 'useState', component: <>In Progress</> },
+	{ title: 'useEffect', component: <>In Progress</> },
 	{ title: 'useContext', component: <UseContextHook /> },
-	{ title: 'useRef', component: <>Use Ref</> },
-	{ title: 'useMemo', component: <>Use Memo</> },
-	{ title: 'useCallback', component: <>Use Callback</> },
-	{ title: 'useReducer', component: <>Use Reducer</> },
-	{ title: 'useTransition', component: <>Use Transition</> },
-	{ title: 'useDeferredValue', component: <>Use DeferredValue</> },
-	{ title: 'useLayoutEffect', component: <>Use LayoutEffect</> },
-	{ title: 'useDebugValue', component: <>Use Debug Value</> },
-	{ title: 'useImperativeHandle', component: <>Use ImperativeHandle</> },
-	{ title: 'useID', component: <>Use id</> },
-	{ title: 'Custom Hooks', component: <>Custom Hooks</> }
+	{ title: 'useRef', component: <>In Progress</> },
+	{ title: 'useMemo', component: <>In Progress</> },
+	{ title: 'useCallback', component: <>In Progress</> },
+	{ title: 'useReducer', component: <>In Progress</> },
+	{ title: 'useTransition', component: <>In Progress</> },
+	{ title: 'useDeferredValue', component: <>In Progress</> },
+	{ title: 'useLayoutEffect', component: <>In Progress</> },
+	{ title: 'useDebugValue', component: <>In Progress</> },
+	{ title: 'useImperativeHandle', component: <>In Progress</> },
+	{ title: 'useID', component: <>In Progress</> },
+	{ title: 'Custom Hooks', component: <>In Progress</> }
 ];
 
 function App() {
-	const [selectedHook, setSelectedHook] = useState(null);
+	const [selectedHook, setSelectedHook] = useState(2);
 	return (
 		<Box style={{ padding: 80, height: '100%' }}>
 			{selectedHook === null ? (
@@ -45,14 +45,16 @@ function App() {
 						width: '100%'
 					}}>
 					<Button onClick={() => setSelectedHook(null)}>Back</Button>
-					<Box
-						sx={{
-							backgroundColor: '#E3F4F4',
-							minHeight: '40vh',
-							width: '100%',
-							borderRadius: '10px'
-						}}>
-						<div style={{ padding: 20 }}>{hooksCollection[selectedHook].component}</div>
+					<Box sx={{ display: 'flex', width: '100%', justifyContent: 'center' }}>
+						<Box
+							sx={{
+								minHeight: '40vh',
+								width: '80%',
+								borderRadius: '10px',
+								boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px'
+							}}>
+							<div style={{ padding: 20 }}>{hooksCollection[selectedHook].component}</div>
+						</Box>
 					</Box>
 				</Box>
 			)}
